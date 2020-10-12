@@ -22,7 +22,7 @@ int main()
     for(a=0; a<n; a++)
     {
         // reset faktor
-        for(i=0;i<n;i++)
+        for(i=0;i<20;i++)
         {
             prime[i]=0;
             factor[i]=0;
@@ -45,43 +45,68 @@ int main()
             }
         }
         
-        int z = 0;
+        
         // buat faktor prima nya saja dari vektor sebelumnya
+        int z = 0;
         for (i = 0; i<j; i++) // dari semua factor
         {
+            printf("Now Checking %d .. ", factor[i]);
             int found = 0;
             for(int k=0;k<j; k++) // cek seluruh prima
             {
                 if (prime[k] == factor[i]) // kalau tidak ada, tambah
                 {
-                    found = 1;
+                    printf("Found %d\n", factor[i]);
+                    found ++;
                 }
-                if (found < 1)
+                if (found == 0)
                 {
+                    printf("Not Found %d, add!\n", factor[i]);
                     prime[z] = factor[i];
                     z++;
                     break;
                 }
             }
+            for(int b=0;b<20;b++)
+            {
+                if(prime[b]!=0)
+                    printf("%d ",prime[b]);
+            }
         }
         
+        
+        //print factor
+        printf("\nFACTOR: ");
+        for(i=0;i<20;i++)
+            if(factor[i] !=0)
+                printf("%d ",factor[i]);
+        
+        //print prime
+        printf("\nPRIME: ");
+        for(i=0;i<20;i++)
+            if(prime[i] != 0)
+                printf("%d ",prime[i]);
+        
         // print vektor prima serta banyak kemunculannya di vektor faktor seluruh
-        printf("Faktor dari %d: ", input[a]);
+        printf("\nFaktor dari %d: ", input[a]);
         for (i=0;i<j;i++)
         {
-            printf("%d ",prime[i]);
-            int count=0;
+            int count = 0;
+            if (i != 0 && prime[i] != 0)
+                printf(" * ");
+            if (prime[i] == 0)
+                break;
+            printf("%d",prime[i]);
+            
             for (int k=0; k<j; k++)
             {
-                if (factor[k] = prime[i])
+                if (factor[k] == prime[i])
                 count++;
             }
             if (count>1)
             {
                 printf("^%d",count);
             }
-            if (j != i-1)
-                printf(" * ");
         }
         printf("\n");
     }
