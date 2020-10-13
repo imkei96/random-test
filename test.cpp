@@ -13,22 +13,26 @@ int main()
     vector<int> x, factor, prime;
     
     // input banyak angka
-    cout << "Insert number: ";
+    //cout << "Insert number: ";
     cin >> input;
     
     // input angka
     for(int i=0; i<input; i++)
     {
-        cout << "Insert number " << i+1 << ":";
+        //cout << "Insert number " << i+1 << ":";
         cin >> a;
         x.push_back(a);
     }
     
+    int n = 0;
     // loop tiap input
     for (auto j = x.begin(); j!= x.end(); j++)
     {
         // ambil variable angka
         int z = *j;
+        factor.clear();
+        prime.clear();
+        n++;
         
         // mulai loop cari seluruh faktor
         while (z != 1)
@@ -55,19 +59,19 @@ int main()
         }
         
         // print vektor prima serta banyak kemunculannya di vektor faktor seluruh
-        cout << "Faktor : ";
+        cout << "Case #" << n << ": ";
         for (auto i = prime.begin(); i!= prime.end(); ++i)
         {
             countx = count(factor.begin(), factor.end(), *i); //brp banyak faktor nya
             cout << *i;
-            cout << "^" << countx;
+            cout << " ^ " << countx;
             if (*i != prime.back()) // jika plg terakhir, tdk usah print * lagi
                 cout << " * ";
             
         }
         cout << "\n";
     }
-    cout << "\nDone";
+    //cout << "\nDone";
     
     return 0;
 }
