@@ -9,60 +9,63 @@ using namespace std;
 int main()
 {
     // variable declaration
-    int input, x, countx;
-    vector<int> factor, prime;
+    int input, countx, a;
+    vector<int> x, factor, prime;
     
-    // input angka
+    // input banyak angka
     cout << "Insert number: ";
     cin >> input;
-    x = input;
     
-    // cek jika input valid (lebih besar dari 1), ini opsional 
-    if (input <= 1)
+    // input angka
+    for(int i=0; i<input; i++)
     {
-        cout << "Input Invalid!";
-        return 0;
-    }
-    else
-    {
-        cout << "Input Valid: " << input << "\n";
+        cout << "Insert number " << i+1 << ":";
+        cin >> a;
+        x.push_back(a);
     }
     
-    // mulai loop cari seluruh faktor
-    while (x != 1)
+    // loop tiap input
+    for (auto j = x.begin(); j!= x.end(); j++)
     {
-        for (int i=2; i<=x; i++)
+        // ambil variable angka
+        int z = *j;
+        
+        // mulai loop cari seluruh faktor
+        while (z != 1)
         {
-            if ( x % i == 0)
+            for (int i=2; i<=z; i++)
             {
-                x = x/i;
-                factor.push_back(i);
-                break;
+                if ( z % i == 0)
+                {
+                    z = z/i;
+                    factor.push_back(i);
+                    break;
+                }
             }
         }
-    }
-    
-    // buat faktor prima nya saja dari vektor sebelumnya
-    for (auto i = factor.begin(); i != factor.end(); ++i) 
-    {
-        // jika belum ada di vektor prima, tambahkan
-        if ( count(prime.begin(), prime.end(), *i) == 0)
-        {
-            prime.push_back(*i);
-        }
-    }
-    
-    // print vektor prima serta banyak kemunculannya di vektor faktor seluruh
-    cout << "Faktor : ";
-    for (auto i = prime.begin(); i!= prime.end(); ++i)
-    {
-        countx = count(factor.begin(), factor.end(), *i); //brp banyak faktor nya
-        cout << *i;
-        if (countx > 1) // jika lebih dari 1, pakai pangkat
-            cout << "^" << countx;
-        if (*i != prime.back()) // jika plg terakhir, tdk usah print * lagi
-            cout << " * ";
         
+        // buat faktor prima nya saja dari vektor sebelumnya
+        for (auto i = factor.begin(); i != factor.end(); ++i) 
+        {
+            // jika belum ada di vektor prima, tambahkan
+            if ( count(prime.begin(), prime.end(), *i) == 0)
+            {
+                prime.push_back(*i);
+            }
+        }
+        
+        // print vektor prima serta banyak kemunculannya di vektor faktor seluruh
+        cout << "Faktor : ";
+        for (auto i = prime.begin(); i!= prime.end(); ++i)
+        {
+            countx = count(factor.begin(), factor.end(), *i); //brp banyak faktor nya
+            cout << *i;
+            cout << "^" << countx;
+            if (*i != prime.back()) // jika plg terakhir, tdk usah print * lagi
+                cout << " * ";
+            
+        }
+        cout << "\n";
     }
     cout << "\nDone";
     
