@@ -39,6 +39,8 @@ int main()
         {
             for (int i=2; i<=z; i++)
             {
+                if (i*i > z)
+                    i = z;
                 if ( z % i == 0)
                 {
                     z = z/i;
