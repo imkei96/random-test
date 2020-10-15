@@ -44,6 +44,8 @@ int main()
         }
         
         // Masukan nilai min sebagai HP = 1 - min
+        if (min > 0)
+            min = 0;
         hp.push_back(1 - min);
     }
     
