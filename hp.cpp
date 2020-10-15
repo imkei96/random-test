@@ -52,7 +52,7 @@ int main()
     //Print Result HP
     for (int x = 0 ; x < count ; x++)
     {
-        cout << "Case #" << x+1 << ": " <<  hp[x] << endl;
+        cout << "Case #" << x+1 << ": " <<  hp[x] << \n;
     }
     
 }
