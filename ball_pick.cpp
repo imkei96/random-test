@@ -9,8 +9,8 @@ int main()
     //Input case
     int t;
     cin >> t;
-    int length[t];
-    long long int array[t][100];
+    long long int length[10];
+    int array[10][100000];
     
     //Loop
     for(int x=0;x<t;x++)
