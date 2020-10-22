@@ -10,15 +10,14 @@ int main()
     int t;
     cin >> t;
     long long int length;
-    int array[100000];
     
     //Loop
     for(int x=0;x<t;x++)
     {
         cin >> length;
-        //Clear array
-        for(int i=0;i<length;i++)
-            array[i]=0;
+        
+        int array[length];
+        
         //Scan array
         for(int i=0;i<length;i++)
             cin >> array[i];
