@@ -9,33 +9,32 @@ int main()
     //Input case
     int t;
     cin >> t;
-    long long int length[10];
-    int array[10][100000];
+    long long int length;
+    int array[100000];
     
     //Loop
     for(int x=0;x<t;x++)
     {
-        cin >> length[x];
+        cin >> length;
+        //Clear array
+        for(int i=0;i<length;i++)
+            array[i]=0;
         //Scan array
-        for(int i=0;i<length[x];i++)
-            cin >> array[x][i];
-    }
-    
-    //Count sum
-    for(int x=0;x<t;x++)
-    {
+        for(int i=0;i<length;i++)
+            cin >> array[i];
+
         long long int sum =0;
         
         //Loop sum tiap angka
-        for(int i=0; i<length[x]; i++)
+        for(int i=0; i<length; i++)
         {
             int temp=0;
             //Cari yg sama brp, simpan di temp
-            if(i!=length[x]-1) //tidak boleh angka terakhir
+            if(i!=length-1) //tidak boleh angka terakhir
             {
-                for(int j=i+1; j<length[x]; j++)
+                for(int j=i+1; j<length; j++)
                 {
-                    if(array[x][i]==array[x][j])
+                    if(array[i]==array[j])
                         temp+=1;
                 }
             }
