@@ -80,48 +80,49 @@ int main()
         
         //Check Bishop
         int count_bishop=0;
-        int dif = qx-qy;
-        if (dif < 0)
-            dif = 0-dif;
             
-        // Check TopLeft -> BottomRight
-        for(int i=0;i<n-dif;i++)
+        // Check UpLeft
+        int qxl = qx;
+        int qyl = qy;
+        while(qxl>=0 && qyl>=0)
         {
-            if(qx>qy)
-            {
-                if(board[i+qx-qy][i] == 1)
-                    count_bishop++;
-            }
-            if(qx<qy)
-            {
-                if(board[i][i-qx+qy] == 1)
-                    count_bishop++;
-            }
-            if(dif == 0)
-            {
-                if(board[i][i] == 1)
-                    count_bishop++;
-            }
+            if(board[qxl][qyl] == 1 && qxl!= qx && qyl!=qy)
+                count_bishop++;
+            qxl--;
+            qyl--;
         }
-        
-        // Check TopRight -> BottomLeft
-        for(int i=0;i<n-dif;i++)
+
+        // Check UpRight
+        qxl = qx;
+        qyl = qy;
+        while(qxl< n && qyl >=0)
         {
-            if(qx>qy)
-            {
-                if(board[i+qx-qy][n-i-1] == 1)
-                    count_bishop++;
-            }
-            if(qx<qy)
-            {
-                if(board[i][n-i+qx-qy-1] == 1)
-                    count_bishop++;
-            }
-            if(dif == 0)
-            {
-                if(board[i][n-i-1] == 1)
-                    count_bishop++;
-            }
+            if(board[qxl][qyl] == 1 && qxl!= qx && qyl!=qy)
+                count_bishop++;
+            qxl++;
+            qyl--;
+        }
+
+        // Check DownLeft
+        qxl = qx;
+        qyl = qy;
+        while(qxl>=0 && qyl < n)
+        {
+            if(board[qxl][qyl] == 1 && qxl!= qx && qyl!=qy)
+                count_bishop++;
+            qxl--;
+            qyl++;
+        }
+
+        // Check DownRight
+        qxl = qx;
+        qyl = qy;
+        while(qxl< n && qyl < n)
+        {
+            if(board[qxl][qyl] == 1 && qxl!= qx && qyl!=qy)
+                count_bishop++;
+            qxl++;
+            qyl++;
         }
         
         //Check Rook
