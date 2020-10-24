@@ -10,7 +10,15 @@ int main()
     //Input case
     int n, pawn;
     cin >> n >> pawn;
-    int board[n][n] = {0};
+    int board[n][n];
+    
+    
+    //Makes Board 0
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+            board[i][j]=0;
+    }
     
     //Input posisi pion
     for(int i=0; i<pawn;i++)
@@ -19,7 +27,7 @@ int main()
         cin >> x >> y;
         board[x-1][y-1] = 1;
     }
-    
+
     //Input Loop KBR
     int q;
     cin >> q;
