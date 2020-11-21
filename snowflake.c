@@ -19,15 +19,15 @@ void create_array(int a[], int length)
     }
 }
 
-void print_line(int x, int length)
+void print_line(int x, int center)
 {
-    int center = (length-1)/2;
-    for(int i=0; i<center-(x-1)/2;i++)
+    int y=(center+1)/2;
+    //print white
+    for(int i=0;i<y-(x-1)/2;i++)
         printf(" ");
-    for(int i=center-(x-1)/2;i<=center+(x-1)/2;i++)
+    //print star
+    for(int i=0;i<x;i++)
         printf("*");
-    for(int i=center+(x-1)/2+1;i<length;i++)
-        printf(" ");
 }
 
 int main()
@@ -46,7 +46,7 @@ int main()
         create_array(array,length);
         for(int i=0;i<length;i++)
         {
-            print_line(array[i],length);
+            print_line(array[i],center);
             if(i!=length-1)
                 printf("\n");
         }
